@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Minimum {
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 7, 5};
+        int target = 12;
+
+        int start = 0;
+        int sum = 0;
+
+        for (int end = 0; end < arr.length; end++) {
+
+            sum = sum + arr[end];
+
+            while (sum > target && start <= end) {
+                sum = sum - arr[start];
+                start++;
+            }
+
+            if (sum == target) {
+                System.out.println("[" + (start + 1) + ", " + (end + 1) + "]");
+                return;
+            }
+        }
+
+        System.out.println("[-1]");
+    }
+}
